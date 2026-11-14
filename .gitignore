@@ -1,0 +1,37 @@
+# GitHub workflows (uploaded separately)
+.github/
+
+# Raw documents and vector data (never committed; use scripts/download.py)
+data/raw/*
+!data/raw/.gitkeep
+data/vectorstore/
+qdrant_storage/
+*.pdf
+
+# Secrets (only .env.example is tracked)
+.env
+.env.*
+!.env.example
+*.env
+
+# Python, tooling and model caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+.cache/
+huggingface/
+model_caches/
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Generated evaluation helpers (real stage results in eval/results/*.json ARE tracked)
+eval/results/offline/
+eval/results/cache/
+eval/results/REPORT.md.tmp
