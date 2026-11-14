@@ -1,0 +1,13 @@
+id,type,question,doc_id,page,gold_answer,evidence_text,doc_id_2,page_2,answerable,status,notes
+S001,table_lookup,What is the room rent limit per day?,SAMPLE_POLICY_V2,1,"6,000 per day","| Room rent | 6,000 per day | none |",,,yes,verified,synthetic fixture
+S002,table_lookup,What is the waiting period for cataract surgery?,SAMPLE_POLICY_V2,1,12 months,"| Cataract surgery | 50,000 per eye | 12 months |",,,yes,verified,synthetic fixture
+S003,table_lookup,What is the maternity benefit limit?,SAMPLE_POLICY_V2,1,"75,000 per delivery","| Maternity | 75,000 per delivery | 24 months |",,,yes,verified,synthetic fixture
+S004,plain_text,After how many months are pre-existing diseases covered?,SAMPLE_POLICY_V2,2,36 months,Pre-existing diseases are covered after 36 months of continuous cover.,,,yes,verified,synthetic fixture
+S005,plain_text,Is cosmetic surgery covered?,SAMPLE_POLICY_V2,2,Not covered unless needed after an accident,Cosmetic surgery is not covered unless it is needed after an accident.,,,yes,verified,synthetic fixture
+S006,plain_text,What is the grace period for renewal?,SAMPLE_POLICY_V2,3,30 days,The grace period for renewal is 30 days.,,,yes,verified,synthetic fixture
+S007,plain_text,How long before planned hospitalisation must the insurer be notified?,SAMPLE_POLICY_V2,3,48 hours,Planned hospitalisation must be notified at least 48 hours before admission.,,,yes,verified,synthetic fixture
+S008,plain_text,What is the free-look period?,SAMPLE_POLICY_V2,3,15 days,The free-look period is 15 days from receipt of the policy.,,,yes,verified,synthetic fixture
+S009,cross_reference,What must a hospital have to qualify under the policy definition?,SAMPLE_POLICY_V2,1,"At least 10 inpatient beds and round-the-clock nursing staff, plus an operation theatre and daily patient records (Section 5.2)",Hospital means an institution with at least 10 inpatient beds ... meeting the requirements in Section 5.2.,,3,yes,verified,synthetic fixture
+S010,compare_two,How did the room rent limit change between version 1 and version 2?,SAMPLE_POLICY_V1,1,"It rose from 5,000 per day to 6,000 per day","| Room rent | 5,000 per day | none |",SAMPLE_POLICY_V2,1,yes,verified,synthetic fixture
+S011,unanswerable,What is the annual premium for a 45-year-old?,,,not in the documents,,,,no,verified,synthetic fixture
+S012,unanswerable,What was the claim settlement ratio last year?,,,not in the documents,,,,no,verified,synthetic fixture
