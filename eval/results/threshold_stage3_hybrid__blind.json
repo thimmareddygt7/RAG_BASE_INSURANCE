@@ -1,0 +1,7 @@
+{
+  "stage": "stage3_hybrid",
+  "threshold": 0.032010245377015606,
+  "n_answerable": 9,
+  "n_unanswerable": 5,
+  "max_false_refusal": 0.1
+}

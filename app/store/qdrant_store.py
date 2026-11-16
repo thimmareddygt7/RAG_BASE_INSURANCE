@@ -17,7 +17,7 @@ class QdrantStore:
         from qdrant_client import QdrantClient, models
 
         self._m = models
-        self._client = client or QdrantClient(host=host, port=port)
+        self._client = client or QdrantClient(host=host, port=port, timeout=60.0)
         self._collection = collection
         self._dim = dimension
         self._dense = dense_name

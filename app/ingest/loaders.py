@@ -85,12 +85,39 @@ def _inside(block, bbox) -> bool:
 
 def ocr_page_with_tesseract(page, lang: str) -> str:
     """Render a PDF page and run Tesseract on it. Needs pytesseract, Pillow and the binary."""
+    import os
+    import shutil
+    import subprocess
     import pytesseract
     from PIL import Image
 
+    if not shutil.which("tesseract"):
+        for candidate in [
+            r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+            r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+            os.path.expandvars(r"%LOCALAPPDATA%\Programs\Tesseract-OCR\tesseract.exe"),
+        ]:
+            if os.path.isfile(candidate):
+                pytesseract.pytesseract.tesseract_cmd = candidate
+                break
+
     pix = page.get_pixmap(dpi=300)
-    image = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
-    return pytesseract.image_to_string(image, lang=lang)
+    try:
+        image = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
+        return pytesseract.image_to_string(image, lang=lang)
+    except (pytesseract.TesseractNotFoundError, FileNotFoundError):
+        img_bytes = pix.tobytes("png")
+        res = subprocess.run(
+            ["docker", "run", "--rm", "-i", "insurance-rag-api:latest", "tesseract", "stdin", "stdout", "-l", lang],
+            input=img_bytes,
+            capture_output=True,
+        )
+        if res.returncode == 0:
+            return res.stdout.decode("utf-8", errors="replace")
+        raise
+
+
+ocr_fitz_page = ocr_page_with_tesseract
 
 
 def load_pdf(path: Path, ingest_cfg: dict[str, Any], ocr_cfg: dict[str, Any],

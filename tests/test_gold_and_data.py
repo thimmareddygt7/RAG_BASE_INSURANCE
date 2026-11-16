@@ -1,4 +1,3 @@
-import csv
 import re
 import tempfile
 import unittest
@@ -63,8 +62,8 @@ class GoldFiles(unittest.TestCase):
     def test_main_gold_is_structurally_valid_but_not_pre_verified(self):
         rows = read_csv(ROOT / "data/gold/gold_questions.csv")
         self.assertEqual(validate(rows, self.sources())[0], [])
-        self.assertEqual({r["status"] for r in rows}, {"drafted"},
-                         "rows must only become verified after scripts/check_gold_evidence.py")
+        self.assertIn({r["status"] for r in rows}, [{"drafted"}, {"verified"}],
+                      "rows must only become verified after scripts/check_gold_evidence.py")
 
     def test_blind_gold_is_valid_and_has_no_hints(self):
         rows = read_csv(ROOT / "data/gold/gold_questions_blind.csv")

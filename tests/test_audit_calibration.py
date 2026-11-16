@@ -1,4 +1,3 @@
-import csv
 import json
 import tempfile
 import unittest
@@ -39,7 +38,7 @@ class Audit(unittest.TestCase):
         sample = stratified_sample(RECORDS, 5)
         rows = build_sheet(sample, {r["id"]: {"gold_answer": "g", "evidence_text": "e"}
                                     for r in RECORDS})
-        for row, v in zip(rows, verdicts):
+        for row, v in zip(rows, verdicts, strict=False):
             row["human_verdict"] = v
         write_sheet(rows, d / "a.csv")
         return d / "a.csv"
