@@ -1,7 +1,0 @@
-{
-  "stage": "stage6_ocr_tables",
-  "threshold": -2.975393295288086,
-  "n_answerable": 9,
-  "n_unanswerable": 5,
-  "max_false_refusal": 0.1
-}

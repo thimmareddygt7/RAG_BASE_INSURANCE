@@ -1,4 +1,0 @@
-doc_id,kind,insurer,product,version,source_url,license_checked,local_filename,scanned,allowed_groups,sha256,notes
-AGENT_GUIDE_FAKE,internal_synthetic,Example Shield Insurance (fictional),Internal Agent Guide,v1,local:data/synthetic/agent_guide_FAKE.md,n/a,agent_guide_FAKE.md,no,agent|admin,,Self-authored fake document
-SAMPLE_POLICY_V1,synthetic_policy,Example Shield (fictional),Health Basic,v1,local:data/synthetic/sample_policy_FAKE_v1.md,n/a,sample_policy_FAKE_v1.md,no,policyholder|agent|admin,,Older version
-SAMPLE_POLICY_V2,synthetic_policy,Example Shield (fictional),Health Basic,v2,local:data/synthetic/sample_policy_FAKE_v2.md,n/a,sample_policy_FAKE_v2.md,no,policyholder|agent|admin,,Latest version
