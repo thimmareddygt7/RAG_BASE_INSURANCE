@@ -1,0 +1,7 @@
+{
+  "stage": "stage5_structure",
+  "threshold": -5.687964677810669,
+  "n_answerable": 9,
+  "n_unanswerable": 5,
+  "max_false_refusal": 0.1
+}

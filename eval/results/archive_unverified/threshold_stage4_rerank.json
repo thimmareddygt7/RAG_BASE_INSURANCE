@@ -1,0 +1,6 @@
+{
+  "stage": "stage4_rerank",
+  "threshold": 1.367847379297018,
+  "n_answerable": 18,
+  "n_unanswerable": 2
+}

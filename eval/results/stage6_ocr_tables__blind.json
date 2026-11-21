@@ -1,0 +1,6210 @@
+{
+  "stage": "stage6_ocr_tables",
+  "dataset": "real",
+  "offline": false,
+  "k_values": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "settings": {
+    "ingest": {
+      "strategy": "structure",
+      "chunk_size": 512,
+      "chunk_overlap": 64,
+      "min_chunk_chars": 50,
+      "batch_size": 32,
+      "keep_tables_whole": true,
+      "prepend_heading": true,
+      "strip_headers_footers": true
+    },
+    "ocr": {
+      "enabled": true,
+      "engine": "tesseract",
+      "min_chars_per_page": 30,
+      "lang": "eng"
+    },
+    "tables": {
+      "parser": "pymupdf"
+    },
+    "retrieval": {
+      "hybrid_search": true,
+      "rrf_k": 60,
+      "rerank": true,
+      "rerank_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "candidate_k": 20,
+      "top_k": 5,
+      "context_k": 3
+    }
+  },
+  "models": {
+    "llm": "openai/gpt-oss-20b",
+    "judge": "openai/gpt-oss-20b",
+    "embedding": "BAAI/bge-small-en-v1.5"
+  },
+  "records": [
+    {
+      "id": "B001",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How much will my Apex plan pay per day towards the hospital room?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          6.140334
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          4.257506
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          4.009952
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.27659
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.811642
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -2.772516
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.715508
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.812266
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.918534
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.197441
+        ]
+      ],
+      "top_score": 6.140334129333496,
+      "answer": "Your Apex plan will pay up to\u202fRs.\u202f7,500 per day for the hospital room.\u202f[APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6035.2,
+      "retrieval_ms": 4715.72,
+      "llm_ms": 1318.97,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B002",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "Is there a daily cap on intensive care charges in the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.232877
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.502938
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.563803
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.38039
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.74533
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.661122
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.775911
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -4.799362
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -5.182727
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -5.460664
+        ]
+      ],
+      "top_score": 0.23287737369537354,
+      "answer": "No. The policy states that ICU/ICCU charges have no sub\u2011limit \u2013 the insurer covers the actual charges up to the sum insured. [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5464.47,
+      "retrieval_ms": 4751.45,
+      "llm_ms": 712.53,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B003",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "For how many days before admission does the Apex plan cover my medical expenses?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          4.849931
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          4.829797
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          4.55176
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          3.956635
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.984659
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.736007
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          2.33026
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          1.564776
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          1.564776
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          1.180597
+        ]
+      ],
+      "top_score": 4.849930763244629,
+      "answer": "The Apex plan covers pre\u2011hospitalisation medical expenses for up to **60 days before admission** (subject to the \u201clinked to illness\u201d condition)[APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5702.62,
+      "retrieval_ms": 4620.85,
+      "llm_ms": 1081.27,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B004",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the most the Apex plan pays for an ambulance each time I am hospitalised?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.352019
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.044494
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -0.677212
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.120355
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.221617
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -4.008147
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -4.346787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.435794
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.480055
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -4.526597
+        ]
+      ],
+      "top_score": 0.3520187735557556,
+      "answer": "The Apex plan covers up to **Rs.\u202f3,500 per hospitalisation** for road ambulance charges. [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5425.14,
+      "retrieval_ms": 4742.62,
+      "llm_ms": 681.87,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B005",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How much does the Apex plan pay for Ayurveda and other AYUSH treatment?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.018288
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.853367
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -1.889774
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.706941
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -2.941403
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.259607
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -4.297161
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -4.297161
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.777187
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -7.77075
+        ]
+      ],
+      "top_score": 1.0182876586914062,
+      "answer": "The Apex Health Shield (v2) covers AYUSH treatment up to 100\u202f% of the Sum Insured, provided the treatment is linked to an illness. [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5142.58,
+      "retrieval_ms": 4689.8,
+      "llm_ms": 452.11,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B006",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "Does the Apex plan put a limit on day care procedures?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          3.877098
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          3.547692
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          3.139137
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.968616
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.358013
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -3.118494
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.365104
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -4.475704
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.568892
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.580618
+        ]
+      ],
+      "top_score": 3.8770980834960938,
+      "answer": "Yes. The Apex plan covers day\u2011care procedures up to the sum insured, but only for the initial 30 days of coverage. [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5412.89,
+      "retrieval_ms": 4680.96,
+      "llm_ms": 731.39,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B007",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How long must I wait before the Apex plan pays for an illness that is not an accident?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          4.95292
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.42055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.287699
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.986492
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.280221
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.237406
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.214358
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          1.953063
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          1.951176
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          1.934973
+        ]
+      ],
+      "top_score": 4.952919960021973,
+      "answer": "The Apex Health Shield plan requires a 30\u2011day waiting period before it will pay for any illness that is not an accidental bodily injury. [APEX_HEALTH_V2 p.3]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7122.95,
+      "retrieval_ms": 4705.94,
+      "llm_ms": 2416.5,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B008",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How many months do I have to wait for cataract surgery to be covered on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          7.171074
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          5.282322
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          5.265744
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          5.207527
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          2.652779
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          2.088888
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -0.333136
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -0.333136
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -0.771636
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.121242
+        ]
+      ],
+      "top_score": 7.171073913574219,
+      "answer": "You must wait **12 months** for cataract surgery to be covered under the Apex Health Shield (v2) plan. [APEX_HEALTH_V2 p.3]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7507.93,
+      "retrieval_ms": 4778.57,
+      "llm_ms": 2728.92,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B009",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "When can I claim for hernia or piles treatment on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.173193
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.126587
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.583527
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -3.267231
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.309332
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.736902
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.645564
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.066541
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.334845
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.833836
+        ]
+      ],
+      "top_score": 0.173193097114563,
+      "answer": "You can claim for hernia or piles treatment only after the 24\u2011month waiting period has elapsed. The policy lists a 24\u2011month waiting period for \u201cHernia, Hydrocele, Piles and Fistula\u201d under Specific Ailments [APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6232.55,
+      "retrieval_ms": 4696.02,
+      "llm_ms": 1536.09,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B010",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "After how long does the Apex plan cover a joint replacement?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.421059
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.388755
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.483114
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -0.323484
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -0.328916
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.153756
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.255147
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -1.31929
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.576898
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.203162
+        ]
+      ],
+      "top_score": 3.4210591316223145,
+      "answer": "The Apex Health Shield plan requires a waiting period of **24 months** before covering joint replacement surgery (unless the surgery is accidental)[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7095.84,
+      "retrieval_ms": 4677.73,
+      "llm_ms": 2417.65,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B011",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How long is the wait for conditions I already had when I bought the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          5.425234
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.598992
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.055722
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          2.206467
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.203216
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          1.016621
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.602804
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.602804
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.563611
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.458642
+        ]
+      ],
+      "top_score": 5.425233840942383,
+      "answer": "The waiting period for pre\u2011existing conditions declared at the time of inception under the Apex Health Shield plan is 36\u202fmonths. [APEX_HEALTH_V2 p.3]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7724.15,
+      "retrieval_ms": 5117.57,
+      "llm_ms": 2606.2,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B012",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the most the Apex plan pays per eye for cataract surgery?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          6.161514
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          3.233774
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -3.026044
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -3.719709
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.051884
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.091668
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.112
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -5.210202
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.856274
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.980498
+        ]
+      ],
+      "top_score": 6.1615142822265625,
+      "answer": "The Apex Health Shield (v2) plan pays up to **Rs.\u202f60,000 per eye** for cataract surgery. [APEX_HEALTH_V2 p.3]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5497.21,
+      "retrieval_ms": 4765.83,
+      "llm_ms": 731.14,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B013",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How often can I get a free annual health check-up on the Silver wellness plan?",
+      "gold_pages": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          1.276655
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -2.746151
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -4.268527
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -4.564404
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.151505
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -8.062767
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -9.445601
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.236897
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.389325
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.594877
+        ]
+      ],
+      "top_score": 1.276654839515686,
+      "answer": "You can receive a free annual health check\u2011up once per year on the Harbor Wellness Silver plan. [HARBOR_WELLNESS_BROCHURE p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "HARBOR_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5449.07,
+      "retrieval_ms": 4699.17,
+      "llm_ms": 749.55,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B014",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the biggest renewal discount I can earn through steps on the Gold wellness plan?",
+      "gold_pages": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          1.563059
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -0.725356
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -8.918701
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -9.040575
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -9.588809
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -10.660852
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.757294
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -10.758041
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.856803
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.876933
+        ]
+      ],
+      "top_score": 1.563058614730835,
+      "answer": "The Gold wellness plan offers a maximum renewal discount of **20%** based on steps taken. [HARBOR_WELLNESS_BROCHURE p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "HARBOR_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7320.5,
+      "retrieval_ms": 4704.23,
+      "llm_ms": 2615.87,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B015",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How much worldwide emergency cover does the Gold wellness plan give?",
+      "gold_pages": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          4.154933
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          1.319497
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -4.414107
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -7.619906
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -7.828323
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -8.976244
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -9.056315
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -9.399446
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -9.677522
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -9.909253
+        ]
+      ],
+      "top_score": 4.154932975769043,
+      "answer": "The Gold wellness plan includes worldwide emergency cover up to $50,000. [HARBOR_WELLNESS_BROCHURE p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "HARBOR_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5387.69,
+      "retrieval_ms": 4734.45,
+      "llm_ms": 652.83,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B016",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the daily limit on ICU charges under the Harbor wellness plan?",
+      "gold_pages": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          5.586011
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          5.344488
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          2.603102
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -1.135721
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.321689
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.431282
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -1.608767
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -1.978186
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -2.08984
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -2.653292
+        ]
+      ],
+      "top_score": 5.586010932922363,
+      "answer": "There is no daily limit on ICU charges under the Harbor Wellness plan. [HARBOR_WELLNESS_BROCHURE p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "HARBOR_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6389.15,
+      "retrieval_ms": 4720.27,
+      "llm_ms": 1668.59,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B017",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How much air ambulance cover does the Gold wellness plan include?",
+      "gold_pages": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          0.699865
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -1.891538
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -2.444887
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.244536
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -5.437159
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.168517
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.344711
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -8.875281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -9.962413
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -10.20819
+        ]
+      ],
+      "top_score": 0.6998651027679443,
+      "answer": "The Gold wellness plan includes air ambulance cover up to Rs.\u202f5\u202fLakhs. [HARBOR_WELLNESS_BROCHURE p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "HARBOR_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6471.73,
+      "retrieval_ms": 4669.51,
+      "llm_ms": 1801.85,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B018",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How much does the critical illness rider pay out if I am diagnosed with cancer?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.509332
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.509332
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -0.674885
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -0.779139
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -0.788932
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -7.930188
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -8.45267
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -8.662591
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -8.836643
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -9.753193
+        ]
+      ],
+      "top_score": 0.5093315243721008,
+      "answer": "The critical illness rider pays **100\u202f% of the Rider Sum Insured** if you are diagnosed with Cancer of Specified Severity[SPECIAL_RIDER_SCANNED p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 8434.53,
+      "retrieval_ms": 4700.61,
+      "llm_ms": 3733.62,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.3333333333333333,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B019",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How many days must I survive after a heart attack to claim under the critical illness rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          4.10037
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          3.854888
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          3.453622
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.184992
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.184992
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.739946
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.641395
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.057074
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -8.065852
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.971737
+        ]
+      ],
+      "top_score": 4.100370407104492,
+      "answer": "You must survive **30 days** after a first heart attack (myocardial infarction) to be eligible for the lump\u2011sum benefit under the critical illness rider. [SPECIAL_RIDER_SCANNED p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7479.71,
+      "retrieval_ms": 4752.82,
+      "llm_ms": 2726.56,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B020",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What does the critical illness rider pay for kidney failure needing dialysis?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          2.699375
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          2.329671
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.381451
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.381451
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -3.16645
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -10.380869
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -11.151776
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -11.183934
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.228262
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -11.324556
+        ]
+      ],
+      "top_score": 2.6993746757507324,
+      "answer": "The critical illness rider pays **100\u202f% of the Rider Sum Insured** for kidney failure requiring dialysis. [SPECIAL_RIDER_SCANNED p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 8300.85,
+      "retrieval_ms": 4698.93,
+      "llm_ms": 3601.53,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B021",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What commission does an agent in the Silver tier earn?",
+      "gold_pages": [
+        [
+          "AGENT_GUIDE_FAKE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          2.707227
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -9.205141
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -11.119071
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -11.200188
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -11.206821
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.287128
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -11.289064
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -11.338078
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -11.351663
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -11.357141
+        ]
+      ],
+      "top_score": 2.7072272300720215,
+      "answer": "An agent in the Silver tier earns a 7% commission. [AGENT_GUIDE_FAKE p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "AGENT_GUIDE_FAKE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5536.43,
+      "retrieval_ms": 4691.35,
+      "llm_ms": 844.85,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B022",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How far back does the Apex plan look when deciding if a condition was pre-existing?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          2.023178
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          1.039741
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.273303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.108298
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.172645
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.275414
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.277561
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -5.825827
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.882452
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.614066
+        ]
+      ],
+      "top_score": 2.0231778621673584,
+      "answer": "The Apex plan considers a condition pre\u2011existing if it was present, diagnosed, or treated within **36 months prior to policy inception**[APEX_HEALTH_V2 p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6309.95,
+      "retrieval_ms": 4681.22,
+      "llm_ms": 1628.29,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B023",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How many days do I have to cancel the Apex plan and get my premium back after buying it?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          3.284051
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          1.610607
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          0.399865
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.105799
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          0.105799
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.144807
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -1.969346
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.082418
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.465962
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.735146
+        ]
+      ],
+      "top_score": 3.284050941467285,
+      "answer": "You have 15 days from the date you receive the policy schedule to cancel the Apex plan and receive a refund of your premium (subject to minimal administrative charges) [APEX_HEALTH_V2 p.5].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5219.49,
+      "retrieval_ms": 4733.65,
+      "llm_ms": 485.6,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": false,
+        "5": false,
+        "10": true
+      },
+      "rr": 0.14285714285714285,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": false
+    },
+    {
+      "id": "B024",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Will the Apex plan pay for cosmetic surgery?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          3.456693
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.454609
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -3.706218
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.134985
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.156486
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.273423
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.7023
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -5.734406
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -5.734406
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.978169
+        ]
+      ],
+      "top_score": 3.456692695617676,
+      "answer": "No. Cosmetic surgery is excluded from coverage unless it is reconstructive surgery required after an accidental bodily injury. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5330.45,
+      "retrieval_ms": 4698.22,
+      "llm_ms": 631.83,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B025",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Does the Apex plan pay if someone deliberately injures themselves?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          1.439812
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -4.497638
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.099321
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.875683
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.92658
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.027531
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.082232
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.223809
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -6.253607
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -6.253607
+        ]
+      ],
+      "top_score": 1.439812183380127,
+      "answer": "No. Claims arising from intentional self\u2011inflicted injury, suicide attempts, or hazardous adventure sports are strictly non\u2011payable under the Apex plan. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7379.28,
+      "retrieval_ms": 4714.82,
+      "llm_ms": 2664.06,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B026",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How much does the Apex plan pay for maternity?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          3.920684
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.350711
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          1.345981
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.747304
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.719552
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.488688
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.572493
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.572493
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -2.726731
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.210796
+        ]
+      ],
+      "top_score": 3.9206838607788086,
+      "answer": "The Apex Health Shield (v2) covers inpatient medical expenses for maternity (normal or cesarean delivery) up to **Rs.\u202f50,000 per delivery** after a waiting period of 24\u202fmonths, for a maximum of two deliveries. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6311.27,
+      "retrieval_ms": 4693.6,
+      "llm_ms": 1617.28,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B027",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Is surgery for weight loss covered by the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          4.178625
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -2.487251
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.45018
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.753543
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.839078
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.868573
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -3.902239
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -4.226469
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -4.493649
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.74028
+        ]
+      ],
+      "top_score": 4.178625106811523,
+      "answer": "No.  Weight\u2011loss surgery (bariatric surgery) is excluded from coverage under the Apex Health Shield plan. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7619.8,
+      "retrieval_ms": 4669.97,
+      "llm_ms": 2949.41,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B028",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How early must I tell the insurer before a planned hospital stay on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          8.321552
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          5.04943
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          3.139445
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          1.255101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.488172
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.12667
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.964547
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.493212
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.582343
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.707562
+        ]
+      ],
+      "top_score": 8.321552276611328,
+      "answer": "You must notify the insurer at least **48 hours before** a planned admission at a network hospital. [APEX_HEALTH_V2 p.5]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5307.32,
+      "retrieval_ms": 4723.86,
+      "llm_ms": 583.22,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B029",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How soon must I report an emergency admission on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          7.044018
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          4.829854
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          1.713486
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -0.050525
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -1.079837
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -2.973747
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -2.973747
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.128295
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.362775
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.637368
+        ]
+      ],
+      "top_score": 7.044017791748047,
+      "answer": "You must provide notice of an emergency admission within 24\u202fhours of the emergency hospitalisation or before discharge, whichever comes first. [APEX_HEALTH_V2 p.5]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5503.58,
+      "retrieval_ms": 4659.95,
+      "llm_ms": 843.4,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B030",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How long after I leave hospital do I have to send in my claim papers on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          5.412789
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.672444
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.184134
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          2.013854
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -0.045576
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.27255
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -0.649018
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.849901
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -0.945937
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.974091
+        ]
+      ],
+      "top_score": 5.412789344787598,
+      "answer": "You must submit all required claim documents within **30 days of discharge** from the hospital. [APEX_HEALTH_V2 p.5]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5340.27,
+      "retrieval_ms": 4715.05,
+      "llm_ms": 624.9,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B031",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Do older customers pay part of the bill themselves on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -0.362973
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.797564
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.538922
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.210948
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.529985
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.758103
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -6.806526
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -6.806526
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -6.883996
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.023517
+        ]
+      ],
+      "top_score": -0.3629731237888336,
+      "answer": "Yes. Under Version\u202f2 of the Apex Health Shield, insured persons aged 65\u202fyears and above are required to pay a mandatory co\u2011payment of 10\u202f% of each admissible claim. [APEX_HEALTH_V2 p.6]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5586.82,
+      "retrieval_ms": 4753.52,
+      "llm_ms": 833.02,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B032",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How much does my cover grow each year I make no claim on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.705219
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.791088
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -1.817819
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -2.934499
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.103849
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -3.30468
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -3.416083
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.352221
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -4.738585
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.234863
+        ]
+      ],
+      "top_score": -1.7052193880081177,
+      "answer": "Your cover increases by **20\u202f% of the base Sum\u202fInsured for each claim\u2011free policy year**. This growth continues until the cumulative bonus reaches **100\u202f% of the base Sum\u202fInsured** (i.e., a maximum doubling of the base cover) [APEX_HEALTH_V2 p.6].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5407.29,
+      "retrieval_ms": 4668.56,
+      "llm_ms": 738.4,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.3333333333333333,
+      "correct": false,
+      "faithful": false,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B033",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the ceiling on the no-claim growth in cover on the Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -2.281519
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.799587
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -3.880796
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -4.405821
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.822834
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -5.286207
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.864545
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -6.084987
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.535161
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.826961
+        ]
+      ],
+      "top_score": -2.2815194129943848,
+      "answer": "The maximum cumulative bonus for no\u2011claim growth on the Apex plan is **100\u202f% of the base Sum Insured** [APEX_HEALTH_V2 p.6].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5482.91,
+      "retrieval_ms": 4710.27,
+      "llm_ms": 772.3,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.3333333333333333,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B034",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Does the Harbor wellness plan make senior citizens pay a share of the bill?",
+      "gold_pages": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -1.183125
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -2.511397
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -2.831324
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.622799
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.794559
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -3.89236
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.927146
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.92958
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.951156
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -8.575262
+        ]
+      ],
+      "top_score": -1.183125376701355,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5252.06,
+      "retrieval_ms": 4743.53,
+      "llm_ms": 508.37,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "B035",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How do I cancel the Harbor wellness plan after buying it, within the free-look window?",
+      "gold_pages": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          5.604993
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.877952
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -4.403275
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -4.706106
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -5.212608
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -5.252674
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -5.441149
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -5.901212
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -5.972374
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.712789
+        ]
+      ],
+      "top_score": 5.604992866516113,
+      "answer": "To cancel the Harbor Wellness Advantage plan within the free\u2011look period, simply send a written notice of cancellation to Harbor Mutual Insurance. The free\u2011look window allows you to do this within 15 days from the date the policy is delivered to you.  \n\n[HARBOR_WELLNESS_BROCHURE p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "HARBOR_WELLNESS_BROCHURE",
+          "page": 4,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5369.3,
+      "retrieval_ms": 4726.3,
+      "llm_ms": 642.71,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B036",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How long is the initial waiting period on the critical illness rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          10.072751
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          5.930621
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          5.930621
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          3.466041
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          2.85132
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.074971
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.410814
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -3.008914
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.856916
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.587619
+        ]
+      ],
+      "top_score": 10.07275104522705,
+      "answer": "The initial waiting period on the Critical Illness Rider is 90 days from the policy inception. [SPECIAL_RIDER_SCANNED p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5231.78,
+      "retrieval_ms": 4619.46,
+      "llm_ms": 612.1,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B037",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "On the Apex plan, how long must I stay in hospital for it to count as inpatient treatment, and what is the daily room limit?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.447809
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.325355
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          1.16603
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.126646
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.225508
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.066255
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.014957
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -1.362904
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.431591
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -2.481754
+        ]
+      ],
+      "top_score": 1.4478094577789307,
+      "answer": "The policy defines an **inpatient hospitalisation** as an admission that lasts for a minimum of **24 consecutive hours** [APEX_HEALTH_V2 p.1].  \n\nThe daily room rent allowance (sub\u2011limit) for inpatient stays is **Rs.\u202f7,500 per day** [APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 9502.31,
+      "retrieval_ms": 4768.71,
+      "llm_ms": 4732.84,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B038",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "How does the Apex plan's definition of a pre-existing condition line up with the waiting period for such conditions?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          3.308331
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          2.596485
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          2.244569
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          1.82178
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.565333
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -1.145295
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.97716
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -3.823188
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -3.823188
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.957778
+        ]
+      ],
+      "top_score": 3.308331251144409,
+      "answer": "The Apex plan defines a pre\u2011existing disease (PED) as any condition, ailment or injury for which the insured had signs or symptoms, was diagnosed, or received medical advice or treatment within **36 months prior to policy inception** [APEX_HEALTH_V2 p.1].  \nThe waiting period for pre\u2011existing diseases declared at inception is also **36 months** [APEX_HEALTH_V2 p.3].  \n\nThus, the definition of a pre\u2011existing condition and the waiting period for such conditions are aligned, both referencing a 36\u2011month period.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7763.31,
+      "retrieval_ms": 4765.39,
+      "llm_ms": 2997.33,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B039",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "What waiting period and money limit does the Apex plan set for cataract surgery?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          7.777277
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          3.919702
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.3709
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          3.309022
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.937327
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.034843
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -0.382537
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -0.55349
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -0.55349
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.810045
+        ]
+      ],
+      "top_score": 7.777276992797852,
+      "answer": "The Apex Health Shield (v2) specifies a 12\u2011month waiting period for cataract surgery and a sub\u2011limit of Rs.\u202f60,000 per eye. [APEX_HEALTH_V2 p.3]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6487.69,
+      "retrieval_ms": 4706.39,
+      "llm_ms": 1780.85,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B040",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "How does the maternity waiting period on the Apex plan compare with its general initial waiting period?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          2.969038
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          1.544874
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          1.534113
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.603868
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.058215
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -0.420021
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.568576
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.814856
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.814856
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.905932
+        ]
+      ],
+      "top_score": 2.969038486480713,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 7562.32,
+      "retrieval_ms": 4757.29,
+      "llm_ms": 2804.93,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "B041",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "What does the critical illness rider pay for a major organ transplant, and what extra donor cost does its endorsement add?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          5.308113
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          5.308113
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -0.402756
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -0.457359
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -4.513902
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -4.910036
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -9.660284
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -10.055043
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -10.477682
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -10.912153
+        ]
+      ],
+      "top_score": 5.308113098144531,
+      "answer": "The critical illness rider pays **100\u202f% of the Rider Sum Insured** for a major organ or bone\u2011marrow transplant[SPECIAL_RIDER_SCANNED p.1].  \nThe endorsement adds an **extra Rs\u202f1,50,000** for inpatient donor\u2011harvesting medical expenses[SPECIAL_RIDER_SCANNED p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7338.11,
+      "retrieval_ms": 4716.43,
+      "llm_ms": 2621.18,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B042",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "Did the daily room rent limit on the Apex plan go up or down between the older and newer version?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          3.933461
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.628853
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.799544
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -0.913044
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          -1.060571
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          -1.331009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.842019
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          -4.945113
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          -5.800388
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.960545
+        ]
+      ],
+      "top_score": 3.9334611892700195,
+      "answer": "The daily room\u2011rent limit increased from **Rs.\u202f5,000 per day in the older version (v1)** to **Rs.\u202f7,500 per day in the newer version (v2)**.  \n\n[APEX_HEALTH_V1 p.2] [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V1",
+          "page": 2,
+          "verified": false,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7775.66,
+      "retrieval_ms": 4675.61,
+      "llm_ms": 3099.71,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B043",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How did the number of days of pre-hospital cover change between the old and new Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          2,
+          1.320554
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.313349
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.126742
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          1.020509
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -0.868391
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          -1.366118
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.428969
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          -1.62073
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -1.631135
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          -1.807841
+        ]
+      ],
+      "top_score": 1.3205541372299194,
+      "answer": "The pre\u2011hospitalisation cover was extended from **30 days prior to admission** in the old Apex plan (v1) to **60 days prior to admission** in the new Apex plan (v2). [APEX_HEALTH_V1 p.2] [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V1",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 10483.35,
+      "retrieval_ms": 4644.19,
+      "llm_ms": 5838.52,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B044",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How did the cataract waiting period change between the old and new Apex plan?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          2.027768
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.029551
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          -1.20362
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.227304
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.325984
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          -1.34005
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -2.221205
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -3.157968
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.250324
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          -3.282974
+        ]
+      ],
+      "top_score": 2.027768135070801,
+      "answer": "The cataract waiting period was shortened from 24\u202fmonths in the old Apex plan (Version\u202f1) to 12\u202fmonths in the new Apex plan (Version\u202f2) [APEX_HEALTH_V1 p.3] [APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V1",
+          "page": 3,
+          "verified": false,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6491.88,
+      "retrieval_ms": 4684.53,
+      "llm_ms": 1807.12,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B045",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "Which version of the Apex plan has the shorter wait for conditions declared at purchase?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          2.235243
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          2.039404
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          1.141686
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          1.047083
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.632874
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.570061
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.46724
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.413234
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.320732
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.844118
+        ]
+      ],
+      "top_score": 2.235243320465088,
+      "answer": "The Apex Health Shield (v2) has the shorter waiting period for conditions declared at purchase, with a 36\u2011month wait compared to the 48\u2011month wait in the Critical Illness Rider (v1) [SPECIAL_RIDER_SCANNED p.2] [APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 2,
+          "verified": false,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 7417.84,
+      "retrieval_ms": 4790.11,
+      "llm_ms": 2627.53,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B046",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How did the co-payment for senior citizens change between the two Apex versions?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          6
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          3.629472
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          1.45808
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.180753
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -5.735377
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          -6.201712
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.600358
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -7.30989
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          -7.444506
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          -8.407127
+        ],
+        [
+          "APEX_HEALTH_V1",
+          4,
+          -8.496968
+        ]
+      ],
+      "top_score": 3.629471778869629,
+      "answer": "The mandatory co\u2011payment for insured persons aged 65\u202fyears and older was **20\u202f% of each admissible claim in Version\u202f1** [APEX_HEALTH_V1 p.6]. In Version\u202f2, this co\u2011payment was **reduced to 10\u202f% of each admissible claim** [APEX_HEALTH_V2 p.6].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V1",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 6467.84,
+      "retrieval_ms": 4788.86,
+      "llm_ms": 1678.59,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "B047",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Is IVF or other fertility treatment covered on the Apex plan?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -0.763686
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.202227
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.254626
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -4.835525
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.971299
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -4.993127
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.247449
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -5.62499
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.626239
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.769352
+        ]
+      ],
+      "top_score": -0.7636864185333252,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5426.88,
+      "retrieval_ms": 4737.29,
+      "llm_ms": 689.48,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B048",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the Apex plan cover treatment for COVID-19?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.908648
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -3.07985
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.280567
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -5.112489
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -6.159977
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -6.443228
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -6.834263
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.991357
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -7.560261
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.586285
+        ]
+      ],
+      "top_score": -2.9086484909057617,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 9377.11,
+      "retrieval_ms": 4741.8,
+      "llm_ms": 4635.2,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B049",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the Apex plan pay for veterinary treatment for my pet?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -4.046698
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.371776
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.793868
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -5.954092
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.460213
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.529741
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.56804
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -6.807549
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.116744
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.119001
+        ]
+      ],
+      "top_score": -4.046697616577148,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 4680.99,
+      "retrieval_ms": 4680.94,
+      "llm_ms": 0.0,
+      "answer_model": "",
+      "llm_cached": false,
+      "correct": true
+    },
+    {
+      "id": "B050",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Can I move my existing policy from another insurer to the Apex plan and keep my waiting periods?",
+      "gold_pages": [],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          1.527019
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.719223
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -0.467667
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.072705
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.441255
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.938377
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.088038
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -2.567055
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -2.567055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.462928
+        ]
+      ],
+      "top_score": 1.527018666267395,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5528.83,
+      "retrieval_ms": 4756.94,
+      "llm_ms": 771.81,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B051",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "How many network hospitals can I get cashless treatment at?",
+      "gold_pages": [],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.576342
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -10.380801
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -10.509646
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -10.590543
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.897149
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.916262
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -10.933926
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -11.0507
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -11.077444
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.094156
+        ]
+      ],
+      "top_score": -7.5763421058654785,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 4726.44,
+      "retrieval_ms": 4726.35,
+      "llm_ms": 0.0,
+      "answer_model": "",
+      "llm_cached": false,
+      "correct": true
+    },
+    {
+      "id": "B052",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Can a newborn baby be added to the Harbor wellness plan, and from what age?",
+      "gold_pages": [],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -1.26484
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -3.425855
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -4.328946
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -4.491301
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -4.814527
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -5.656411
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -5.860077
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -6.008567
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -6.234323
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -10.897732
+        ]
+      ],
+      "top_score": -1.2648398876190186,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5225.02,
+      "retrieval_ms": 4722.92,
+      "llm_ms": 501.97,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B053",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Do I get a premium discount if I pay for two years upfront?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -8.99511
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -10.508974
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -10.626041
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -10.817249
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -10.979021
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -11.017765
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -11.04829
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.056684
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -11.078687
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -11.147703
+        ]
+      ],
+      "top_score": -8.995109558105469,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 4724.14,
+      "retrieval_ms": 4724.08,
+      "llm_ms": 0.0,
+      "answer_model": "",
+      "llm_cached": false,
+      "correct": true
+    },
+    {
+      "id": "B054",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the Apex plan cover treatment at home instead of in hospital?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.421071
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          1.10208
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          1.092422
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -1.241344
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.647675
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.872904
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.113896
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.887487
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -3.055274
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -3.945436
+        ]
+      ],
+      "top_score": 1.4210705757141113,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 9191.3,
+      "retrieval_ms": 4651.86,
+      "llm_ms": 4539.37,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B055",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Can I get a second medical opinion paid for by the Apex plan?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -4.756241
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.619384
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -5.949616
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -5.949616
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -6.224804
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.354414
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.397843
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -6.422277
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -6.800508
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.448683
+        ]
+      ],
+      "top_score": -4.756241321563721,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 4676.18,
+      "retrieval_ms": 4676.13,
+      "llm_ms": 0.0,
+      "answer_model": "",
+      "llm_cached": false,
+      "correct": true
+    },
+    {
+      "id": "B056",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the Harbor wellness plan include doctor consultations by video call?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -2.707138
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.895426
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -4.277783
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -4.366383
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -4.592732
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -4.662243
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -5.089333
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -5.187759
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -5.665411
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.302741
+        ]
+      ],
+      "top_score": -2.7071375846862793,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5312.51,
+      "retrieval_ms": 4685.05,
+      "llm_ms": 627.39,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B057",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Is treatment for a surrogate pregnancy covered under the Apex plan?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          1.5342
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.931738
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.942285
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -4.14169
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -4.393755
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.978327
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.542723
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -6.091422
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.161373
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -6.212123
+        ]
+      ],
+      "top_score": 1.534199595451355,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 9408.3,
+      "retrieval_ms": 4690.65,
+      "llm_ms": 4717.56,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B058",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "What would the premium be for a family of two adults and two children?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -10.227844
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -10.53667
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -10.561959
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -10.650232
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -10.696358
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -10.990767
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -11.085859
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -11.087397
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -11.102802
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -11.116146
+        ]
+      ],
+      "top_score": -10.22784423828125,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 4694.64,
+      "retrieval_ms": 4694.59,
+      "llm_ms": 0.0,
+      "answer_model": "",
+      "llm_cached": false,
+      "correct": true
+    },
+    {
+      "id": "B059",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Is treatment for depression or other mental illness covered on the Apex plan?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.144361
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -1.055691
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -1.332022
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -1.581881
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.748138
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -2.060529
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.573074
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.034302
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -4.266495
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -4.281871
+        ]
+      ],
+      "top_score": 0.14436067640781403,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5365.05,
+      "retrieval_ms": 4699.86,
+      "llm_ms": 665.11,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B060",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the Apex plan cover treatment for HIV or AIDS?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.318002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -1.35807
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -1.976366
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.007092
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -2.996871
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -3.286771
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -3.452769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.480617
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -3.678009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.751336
+        ]
+      ],
+      "top_score": -1.3180015087127686,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 9235.89,
+      "retrieval_ms": 4605.74,
+      "llm_ms": 4630.07,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B061",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Is there a loyalty discount for renewing the Apex plan five years in a row?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -1.53333
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.514875
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -5.679901
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.90293
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -6.173824
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -7.138349
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -7.163586
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -7.650445
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -7.650445
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.952147
+        ]
+      ],
+      "top_score": -1.5333303213119507,
+      "answer": "The policy documents state that agents may offer a loyalty discount of up to 3\u202f% on a renewal, but they do not specify any special discount for a five\u2011year consecutive renewal. The discount authority is limited to 3\u202f% unless higher approval is obtained [AGENT_GUIDE_FAKE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "AGENT_GUIDE_FAKE",
+          "page": 1,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5427.02,
+      "retrieval_ms": 4706.45,
+      "llm_ms": 720.32,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": false
+    },
+    {
+      "id": "B062",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the Apex plan pay for laser eye surgery to remove my glasses?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -1.370346
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -5.414745
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -7.786458
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -7.930933
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.579448
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -8.796667
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -8.924366
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.949593
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -8.971611
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.99864
+        ]
+      ],
+      "top_score": -1.370345950126648,
+      "answer": "No. Laser eye surgery to remove glasses is not covered under the Apex Health Shield (v2) policy. The policy excludes cosmetic surgery, which includes procedures performed for aesthetic reasons or to change appearance, unless the surgery is reconstructive following an accidental bodily injury. Laser eye surgery falls under this exclusion. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 5568.79,
+      "retrieval_ms": 4739.65,
+      "llm_ms": 828.52,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": false
+    },
+    {
+      "id": "B063",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Are hearing aids or spectacles covered on the Harbor wellness plan?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          0.132903
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          0.063776
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -1.953737
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -2.399262
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -2.668042
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.26561
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.387917
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.605737
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -3.691763
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.048456
+        ]
+      ],
+      "top_score": 0.13290327787399292,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5229.15,
+      "retrieval_ms": 4675.42,
+      "llm_ms": 553.65,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B064",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Can I choose a no-claim discount instead of the cumulative bonus on the Apex plan?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          1.959685
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -4.057604
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.782967
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -6.20567
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.297286
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -7.959416
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.011662
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -8.190725
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -8.209078
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -8.352688
+        ]
+      ],
+      "top_score": 1.9596848487854004,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5418.93,
+      "retrieval_ms": 4719.75,
+      "llm_ms": 699.07,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B065",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the Harbor wellness plan include cancer screening for people over 60?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -1.702596
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -2.986885
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.14096
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.663832
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -3.814759
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          -3.827962
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -4.200146
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          -4.646857
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -4.714052
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -10.841787
+        ]
+      ],
+      "top_score": -1.702595829963684,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5203.59,
+      "retrieval_ms": 4643.34,
+      "llm_ms": 560.15,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B066",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Are routine vaccinations for children covered on the Apex plan?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -2.650028
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -3.988536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.235235
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -4.373811
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -4.665399
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -4.714417
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -4.964495
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -5.391746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.449509
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -5.634433
+        ]
+      ],
+      "top_score": -2.6500282287597656,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5503.99,
+      "retrieval_ms": 4679.1,
+      "llm_ms": 824.81,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B067",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Within how many days does the insurer promise to settle a claim once documents arrive?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -2.013131
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -2.315615
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.065141
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -5.338801
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -5.689919
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -6.373346
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -8.105829
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.256948
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -8.413916
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -8.413916
+        ]
+      ],
+      "top_score": -2.0131309032440186,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5306.28,
+      "retrieval_ms": 4700.64,
+      "llm_ms": 605.53,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B068",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Can I lower my premium by choosing a deductible on the Apex plan?",
+      "gold_pages": [],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -3.669268
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -3.990944
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -4.706803
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.496785
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -5.798316
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -6.281718
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -6.68221
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -6.687896
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -6.705178
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -7.159953
+        ]
+      ],
+      "top_score": -3.6692676544189453,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 4715.92,
+      "retrieval_ms": 4715.87,
+      "llm_ms": 0.0,
+      "answer_model": "",
+      "llm_cached": false,
+      "correct": true
+    },
+    {
+      "id": "B069",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Which ombudsman office should I write to if I am unhappy with a claim decision?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -9.052691
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -10.874447
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          -10.953703
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -11.028425
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -11.073282
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -11.108004
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.131876
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -11.137793
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          -11.177952
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          -11.20122
+        ]
+      ],
+      "top_score": -9.052690505981445,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 4725.71,
+      "retrieval_ms": 4725.65,
+      "llm_ms": 0.0,
+      "answer_model": "",
+      "llm_cached": false,
+      "correct": true
+    },
+    {
+      "id": "B070",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Is GST charged on the premium for the Harbor wellness plan?",
+      "gold_pages": [],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          2.398688
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          2.018251
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          0.868333
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          4,
+          0.373268
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          0.313025
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          2,
+          0.18996
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -0.590883
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -0.641363
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          1,
+          -1.27914
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          -8.566277
+        ]
+      ],
+      "top_score": 2.3986880779266357,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5249.8,
+      "retrieval_ms": 4674.44,
+      "llm_ms": 575.29,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    },
+    {
+      "id": "B071",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does the critical illness rider cover stem cell transplants for sickle cell disease?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.185233
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          -0.119947
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          -1.159502
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.691337
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3,
+          -1.691337
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -11.106588
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          -11.112914
+        ],
+        [
+          "HARBOR_WELLNESS_BROCHURE",
+          3,
+          -11.152132
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          -11.250973
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          -11.280592
+        ]
+      ],
+      "top_score": 0.18523314595222473,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 5357.71,
+      "retrieval_ms": 4684.32,
+      "llm_ms": 673.33,
+      "answer_model": "openai/gpt-oss-20b",
+      "llm_cached": true,
+      "correct": true
+    }
+  ],
+  "integrity": {
+    "configured_models": {
+      "answer": "openai/gpt-oss-20b",
+      "judge": "openai/gpt-oss-20b"
+    },
+    "models_used": {
+      "answer": {
+        "openai/gpt-oss-20b": 64
+      },
+      "judge": {
+        "openai/gpt-oss-20b": 88
+      }
+    },
+    "model_drift": false,
+    "answer_cache_hits": 64,
+    "answer_cache_misses": 0,
+    "threshold": -2.975393533706665,
+    "threshold_applied": true,
+    "gold_file": "data\\gold\\gold_questions_blind.csv"
+  },
+  "tag": "blind"
+}

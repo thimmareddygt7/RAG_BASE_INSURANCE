@@ -1,0 +1,8746 @@
+{
+  "stage": "stage3_hybrid",
+  "dataset": "real",
+  "offline": false,
+  "k_values": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "settings": {
+    "ingest": {
+      "strategy": "fixed",
+      "chunk_size": 512,
+      "chunk_overlap": 64,
+      "min_chunk_chars": 50,
+      "batch_size": 32,
+      "keep_tables_whole": false,
+      "prepend_heading": false,
+      "strip_headers_footers": false
+    },
+    "ocr": {
+      "enabled": false,
+      "engine": "tesseract",
+      "min_chars_per_page": 30,
+      "lang": "eng"
+    },
+    "tables": {
+      "parser": "none"
+    },
+    "retrieval": {
+      "hybrid_search": true,
+      "rrf_k": 60,
+      "rerank": false,
+      "rerank_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "candidate_k": 20,
+      "top_k": 5,
+      "context_k": 3
+    }
+  },
+  "models": {
+    "llm": "openai/gpt-oss-20b",
+    "judge": "openai/gpt-oss-20b",
+    "embedding": "BAAI/bge-small-en-v1.5"
+  },
+  "records": [
+    {
+      "id": "Q001",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the daily room rent sub-limit under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029631
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029469
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028992
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The daily room rent sub\u2011limit under Apex Health Shield Version\u202f2 is **Rs.\u202f7,500 per day** [APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 55.41,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q002",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the ICU or ICCU daily charges limit under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031054
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030303
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028992
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028778
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028595
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy does not impose a separate sub\u2011limit for ICU or ICCU charges; they are covered at the actual amount incurred, subject only to the overall Sum Insured of the policy\u202f[APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 38.36,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q003",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How many days of pre-hospitalisation expenses are covered under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031054
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030835
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030536
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029211
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028986
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy provides coverage for pre\u2011hospitalisation expenses for **60 days prior to admission** under Apex Health Shield Version\u202f2[APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 41.39,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q004",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How many days of post-hospitalisation expenses are covered under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031054
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030077
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028992
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.02837
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy provides coverage for post\u2011hospitalisation expenses for **90 days** after discharge [APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 48.23,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q005",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the road ambulance limit per hospitalisation under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031054
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.030835
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028992
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028814
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy provides a road\u2011ambulance allowance of **Rs\u202f3,500 per hospitalisation**\u202f[APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 39.48,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q006",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the coverage limit for AYUSH treatments under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03125
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.030579
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028986
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.02837
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The coverage limit for AYUSH treatments under Apex Health Shield Version\u202f2 is up to 100\u202f% of the Sum Insured. [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 34.33,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q007",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the coverage limit for day care procedures under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032002
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030366
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030303
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029851
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028169
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Apex Health Shield Version\u202f2 policy covers day\u2011care procedures up to the full Sum Insured amount for all such procedures[APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 38.99,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q008",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the annual limit for organ donor expenses in the benefits table of Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030777
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03009
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029911
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029644
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029631
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 33.55,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q009",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the daily hospital cash allowance and maximum days covered under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03125
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.030798
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030077
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028992
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028595
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The daily hospital cash allowance under Apex Health Shield Version\u202f2 is **Rs.\u202f2,000 per day**, and it is payable for a **maximum of 15 days** per admission. [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 38.09,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q010",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What waiting period applies to organ donor expenses in the inpatient schedule of Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030798
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029857
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028992
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The organ donor expenses benefit is subject to a 12\u2011month waiting period in the inpatient schedule of Apex Health Shield Version\u202f2 [APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 39.34,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q011",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What waiting period applies to the daily hospital cash allowance in the inpatient schedule of Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029437
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029418
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029412
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The daily hospital cash allowance has an initial waiting period of **30 days** before it becomes payable. [APEX_HEALTH_V2 p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.38,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q012",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the initial waiting period for illnesses other than accidental injury under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031754
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.030798
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030769
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029644
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029412
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The initial waiting period for all illnesses except accidental bodily injury under Apex Health Shield Version\u202f2 is **30\u202fdays**[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 32.98,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q013",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the waiting period for cataract surgery under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030798
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029412
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028577
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The waiting period for cataract surgery under Apex Health Shield Version\u202f2 is **12\u202fmonths**[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 44.35,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q014",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the waiting period for hernia and piles under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031258
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029851
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029412
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028577
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The waiting period for hernia, hydrocele, piles and fistula is **24\u202fmonths** under Apex Health Shield Version\u202f2[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 35.96,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q015",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the waiting period for Benign Prostatic Hypertrophy (BPH) under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03101
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.030331
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029851
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028778
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02837
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The waiting period for Benign Prostatic Hypertrophy (BPH) under Apex Health Shield Version\u202f2 is **24\u202fmonths**[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.11,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q016",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the waiting period for joint replacement surgery under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031054
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030536
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029412
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028577
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The waiting period for joint replacement surgery (unless it is due to an accident) is **24\u202fmonths** under Apex Health Shield Version\u202f2[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 40.59,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q017",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the waiting period for pre-existing diseases declared at inception under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031498
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028595
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The waiting period for pre\u2011existing diseases declared at inception under Apex Health Shield Version\u202f2 is **36 months**[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 30.16,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q018",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the monetary capping limit per eye for cataract surgery under Clause 3.4 of Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029851
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028986
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.027984
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The cataract surgery sub\u2011limit under Clause\u202f3.4 of Apex Health Shield Version\u202f2 is Rs.\u202f60,000 per eye[APEX_HEALTH_V2 p.3].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 37.52,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q019",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What are the base Sum Insured options available under Care Wellness Silver?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03101
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.030303
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03009
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029851
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028577
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Care Wellness Silver plan offers two base Sum Insured choices:\u202fRs.\u202f5\u202fLakhs and Rs.\u202f10\u202fLakhs\u202f[CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 30.22,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q020",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What are the base Sum Insured options available under Care Wellness Gold?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031025
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03101
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029644
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.028624
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028382
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Care Wellness Gold plan offers two base Sum Insured choices:\u202fRs\u202f25\u202fLakhs and\u202fRs\u202f50\u202fLakhs\u202f[CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 55.57,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q021",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How often is the annual health check-up covered under Care Wellness Silver?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029469
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029437
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029437
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029412
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029083
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028986
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The annual health check\u2011up is covered once per year under Care Wellness Silver[CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.56,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q022",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How often is the annual health check-up covered under Care Wellness Gold?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031746
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03125
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02967
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029644
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029412
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029274
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.02904
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.02901
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The annual health check\u2011up under Care Wellness Gold is covered twice per year. [CARE_WELLNESS_BROCHURE p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 81.04,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q023",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the maximum wellness renewal discount based on steps for Care Wellness Silver?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031746
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.031514
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03125
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029851
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028992
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028191
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Care Wellness Silver plan offers a wellness renewal discount of up to\u202f10\u202f% based on steps\u202f[CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.54,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q024",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the maximum wellness renewal discount based on steps for Care Wellness Gold?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031498
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.02901
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.02879
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The maximum wellness renewal discount based on steps for Care Wellness Gold is **20%** [CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 33.65,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q025",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "Is worldwide emergency cover included in Care Wellness Silver?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031025
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030159
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029877
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029857
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029199
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.028814
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "No. The Care Wellness\u202fSilver plan does not include worldwide emergency cover [CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 35.64,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q026",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the coverage limit for worldwide emergency cover under Care Wellness Gold?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.030777
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029851
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029469
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.029412
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.02904
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The worldwide emergency cover under Care Wellness Gold is up to\u202f$50,000\u202f[CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 34.94,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q027",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What room category entitlement is provided under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03031
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030118
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029236
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.029236
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.028992
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Under Care Wellness Advantage, the room category entitlement is a **single private room up to the sum insured, with no room rent capping** [CARE_WELLNESS_BROCHURE p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.63,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q028",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the daily ICU charges limit under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.031754
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.030769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029631
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029437
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029236
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.028624
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028595
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Care Wellness Advantage plan does not impose a daily limit on ICU charges; it covers the actual ICU charges incurred up to the sum insured\u202f[CARE_WELLNESS_BROCHURE p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 32.15,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q029",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How many days of pre-hospitalisation expenses are covered under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029631
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029236
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.028814
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy covers pre\u2011hospitalisation expenses for **60 days** prior to the hospitalisation\u202f[CARE_WELLNESS_BROCHURE p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 31.86,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q030",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "How many days of post-hospitalisation expenses are covered under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031746
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029418
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.02901
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Post\u2011hospitalisation expenses are covered for **180 days after discharge** from the hospital. [CARE_WELLNESS_BROCHURE p.2]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 34.63,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q031",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the normal road ambulance coverage limit under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032002
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030077
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029274
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The normal road ambulance coverage limit under Care\u202fWellness Advantage is up to\u202fRs.\u202f5,000 per hospitalisation[CARE_WELLNESS_BROCHURE p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 40.71,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q032",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the air ambulance limit for the Gold variant under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.029911
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029857
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029083
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 32.19,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q033",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the lump-sum benefit payable for Cancer of Specified Severity under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030777
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029877
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029412
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.029211
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028382
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The lump\u2011sum benefit for **Cancer of Specified Severity** under the Critical Illness Rider is **100\u202f% of the Rider Sum Insured**[SPECIAL_RIDER_SCANNED p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 34.21,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q034",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What survival period is required to claim for Cancer of Specified Severity under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032522
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03009
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.02971
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029418
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 26.38,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q035",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What benefit is payable for First Heart Attack (Myocardial Infarction) under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03031
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029762
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029644
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028778
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.028595
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Critical Illness Rider pays a lump\u2011sum benefit equal to **100\u202f% of the Rider Sum Insured** for a First Heart Attack (Myocardial Infarction) [SPECIAL_RIDER_SCANNED p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 33.33,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q036",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What survival period is required for a First Heart Attack claim under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032522
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030536
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029236
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 28.28,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q037",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the lump-sum payout for Open Chest CABG under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029469
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.02904
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.028382
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Critical Illness Rider provides a lump\u2011sum payout of **100\u202f% of the Rider Sum Insured** for an Open Chest CABG claim[SPECIAL_RIDER_SCANNED p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.52,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q038",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the benefit payable for Kidney Failure Requiring Dialysis under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030777
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028595
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Critical Illness Rider pays a lump\u2011sum benefit equal to **100\u202f% of the Rider Sum Insured** for Kidney Failure Requiring Dialysis[SPECIAL_RIDER_SCANNED p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 55.3,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q039",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What survival period is required for Major Organ or Bone Marrow Transplant under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032522
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030159
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030118
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028382
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 33.63,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q040",
+      "type": "table_lookup",
+      "answerable": true,
+      "question": "What is the commission percentage for the Silver tier in the Internal Agent Guide?",
+      "gold_pages": [
+        [
+          "AGENT_GUIDE_FAKE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030159
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03009
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029828
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.02971
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029324
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029274
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The commission for the Silver tier is\u202f7%\u202f[AGENT_GUIDE_FAKE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "AGENT_GUIDE_FAKE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 39.14,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q041",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How is Inpatient Hospitalisation defined in Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030077
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028992
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 26.08,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q042",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the minimum bed requirement for a Hospital in towns with a population over 10,000 under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032018
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03031
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029469
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029418
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.02879
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 29.03,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q043",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the lookback time window for Pre-existing Disease (PED) diagnosis in Apex Health Shield Version 2 definitions?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031746
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030835
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029437
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02879
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028382
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The definition states that a pre\u2011existing disease is any condition for which the insured had signs, symptoms, a diagnosis, medical advice or treatment within **36\u202fmonths** before the policy started[APEX_HEALTH_V2 p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 34.84,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q044",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the duration of the Free-Look Period defined in Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029211
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029199
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Free\u2011Look Period for Apex Health Shield Version\u202f2 is 15\u202fdays from the date the policy schedule is received\u202f[APEX_HEALTH_V2 p.5].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 40.56,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": false,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q045",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the definition of Grace Period under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030077
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02901
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Grace Period means the specified period of **30 days immediately following the premium due date during which a payment can be made to maintain policy continuity**. [APEX_HEALTH_V2 p.1]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 35.94,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q046",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Is cosmetic surgery covered under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03009
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02879
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028778
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Cosmetic surgery is excluded under Apex Health Shield Version\u202f2. The policy states that treatment or surgery for aesthetic reasons, change of appearance, or plastic surgery is not covered unless it is reconstructive surgery following an accidental bodily injury. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.38,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q047",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Are claims for self-inflicted injury or suicide attempt payable under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030798
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030777
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.03031
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028992
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "No. Claims arising from intentional self\u2011inflicted injury, suicide attempts, or hazardous adventure sports are strictly non\u2011payable under Apex Health Shield Version\u202f2. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.87,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q048",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What maternity benefit coverage is provided under Section 4.3 of Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029857
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029631
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029437
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029211
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028986
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Section\u202f4.3 provides that inpatient medical expenses for maternity\u2014including normal or cesarean delivery\u2014are covered up to **Rs.\u202f50,000 per delivery**. This benefit becomes available only after a **24\u2011month waiting period** and is limited to **a maximum of two deliveries** under the policy\u202f[APEX_HEALTH_V2 p.4].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 42.5,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q049",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Under what condition is dental treatment covered under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030331
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029877
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029418
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.02901
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028992
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Dental treatment or surgery is covered only when it requires hospitalisation that arises solely from an accidental injury; otherwise it is excluded.\u202f[APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 40.36,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q050",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Are weight loss treatments and bariatric surgery covered under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029877
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029644
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029274
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02901
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028992
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Weight\u2011loss treatments and bariatric surgery are **not covered** under Apex Health Shield Version\u202f2. They are listed as exclusions in the policy. [APEX_HEALTH_V2 p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 45.02,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q051",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Are hospital admissions primarily for diagnostic evaluations covered under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032018
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030536
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029851
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02837
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 28.62,
+      "hit": {
+        "1": false,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 0.5,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q052",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How much advance notice is required for planned hospitalisation under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030331
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.029236
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028992
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028624
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy requires that the insured (or their representative) notify the insurer **at least 48 hours before the planned admission** at a network hospital. [APEX_HEALTH_V2 p.5]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.39,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q053",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "When must notice of emergency hospitalisation be provided under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.029877
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029572
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029437
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028814
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Notice of an emergency hospitalisation must be given within 24\u202fhours of the emergency admission or before discharge, whichever comes first. [APEX_HEALTH_V2 p.5]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 44.49,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q054",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Within how many days after discharge must claim documents be submitted under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031258
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.030835
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030331
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029851
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028778
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028382
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Claim documents must be submitted within\u202f30\u202fdays of discharge\u202f[APEX_HEALTH_V2 p.5].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.3,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q055",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What mandatory co-payment applies to senior citizens aged 65 and above under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03031
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029857
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028577
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The mandatory co\u2011payment for senior citizens aged 65 years and above under Apex Health Shield Version\u202f2 is **10\u202f% of each admissible claim** [APEX_HEALTH_V2 p.6].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 34.22,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q056",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the cumulative bonus percentage increase per claim-free year under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029851
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029412
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028571
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028191
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy provides a **20\u202f% increase in the base Sum Insured for each claim\u2011free policy year** under Apex Health Shield Version\u202f2, with the cumulative bonus capped at 100\u202f% of the base Sum Insured [APEX_HEALTH_V2 p.6].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 39.91,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q057",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the maximum cumulative bonus limit under Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029211
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02901
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028778
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028595
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The maximum cumulative bonus under Apex Health Shield Version\u202f2 is **100\u202f% of the base Sum Insured** [APEX_HEALTH_V2 p.6].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.48,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q058",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the expense limit for living organ donor harvesting under Clause 6.3 of Apex Health Shield Version 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03031
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029644
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029644
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028992
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The expense limit for living organ donor harvesting under Clause\u202f6.3 of Apex Health Shield Version\u202f2 is **Rs.\u202f2,00,000**. [APEX_HEALTH_V2 p.6]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": false,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.9,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": false,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q059",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "Does Care Wellness Advantage require a co-payment for senior citizens entering the policy?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031746
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03125
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030769
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029412
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.028778
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "No. Care Wellness Advantage offers \u201ccomplete freedom from co\u2011payments regardless of entry age\u201d[CARE_WELLNESS_BROCHURE p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 35.18,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q060",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the waiting period for pre-existing diseases under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.031754
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031054
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.030777
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.030769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.028992
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.02879
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The waiting period for pre\u2011existing diseases under Care Wellness Advantage is 36 months of continuous coverage. [CARE_WELLNESS_BROCHURE p.3]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 45.64,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q061",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the waiting period and sub-limit for cataract surgery under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031746
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.03101
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029631
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028778
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Under Care Wellness Advantage, cataract surgery is subject to a **24\u2011month waiting period** and a **sub\u2011limit of Rs.\u202f50,000 per eye**. [CARE_WELLNESS_BROCHURE p.3]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 39.03,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q062",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "How can a policyholder cancel their policy during the free-look period under Care Wellness Advantage?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031754
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.031746
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029412
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.028778
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.028624
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Care Wellness Advantage policy provides a 15\u2011day free\u2011look period from the date the policy is delivered.\u202fDuring this time the policyholder may cancel the policy by sending a written notice to the insurer.\u202f[CARE_WELLNESS_BROCHURE p.4]",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 41.56,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q063",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the initial waiting period for the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028778
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028405
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Critical Illness Rider has an initial waiting period of **90 days** from inception [SPECIAL_RIDER_SCANNED p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.63,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q064",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What is the waiting period for pre-existing critical conditions under the Critical Illness Rider?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029412
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028778
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The waiting period for pre\u2011existing critical conditions under the Critical Illness Rider is **48 months**[SPECIAL_RIDER_SCANNED p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "SPECIAL_RIDER_SCANNED",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 39.29,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q065",
+      "type": "plain_text",
+      "answerable": true,
+      "question": "What additional donor harvesting limit is granted in Endorsement APEX-RIDER-END-2022-09?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032002
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029437
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.02901
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028986
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028405
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 40.93,
+      "hit": {
+        "1": false,
+        "3": false,
+        "5": false,
+        "10": false
+      },
+      "rr": 0.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q066",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, what minimum duration defines Inpatient Hospitalisation on Page 1, and what daily room rent limit applies on Page 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032002
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030077
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029211
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028992
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028577
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy defines **Inpatient Hospitalisation** as an admission that lasts **at least 24 consecutive hours**\u202f[APEX_HEALTH_V2 p.1].  \n\nFor Version\u202f2, the **daily room\u2011rent allowance** is **Rs\u202f7,500 per day**\u202f[APEX_HEALTH_V2 p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 42.34,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q067",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, how does the Pre-existing Disease definition time window on Page 1 correspond to the PED waiting period on Page 3?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031754
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031054
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030077
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029437
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028986
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy defines a Pre\u2011existing Disease (PED) as any condition that showed signs, symptoms, diagnosis, medical advice or treatment within **36\u202fmonths before the policy starts**\u202f[APEX_HEALTH_V2 p.1].  \n\nOn the waiting\u2011period table, the entry for \u201cPre\u2011existing Disease\u201d states that such diseases declared at inception are subject to a **36\u2011month waiting period** before any claim can be made\u202f[APEX_HEALTH_V2 p.3].  \n\nThus, the 36\u2011month look\u2011back period used to identify a pre\u2011existing condition is the same 36\u2011month period that must elapse before coverage for that condition becomes available.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 40.65,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q068",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, how is Co-payment defined on Page 1, and what specific percentage applies to senior citizens on Page 6?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03009
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029851
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029644
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029199
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.02837
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Co\u2011payment is defined on Page\u202f1 as a cost\u2011sharing requirement under the policy that requires the policyholder to bear a specified percentage of the admissible claim amount [APEX_HEALTH_V2 p.1].  \nFor senior citizens (insured persons aged 65\u202fyears and above), the policy specifies a mandatory co\u2011payment of **10\u202f%** per admissible claim under Version\u202f2 [APEX_HEALTH_V2 p.6].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.4,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q069",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, what is the initial waiting period for day care procedures on Page 2 compared to the general initial waiting period on Page 3?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032266
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031778
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03125
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029631
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02901
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.028577
+        ]
+      ],
+      "top_score": 0.032266458495966696,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 33.1,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q070",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, how does the organ donor limit in the benefits table on Page 2 align with the organ donor support clause on Page 6?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029857
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029851
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.02971
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.02879
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 27.47,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q071",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, what is the cataract surgery waiting period in the table on Page 3, and what sub-limit is specified in Clause 3.4 on Page 3 and Page 2?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030331
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029851
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029644
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029199
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.02837
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The cataract surgery waiting period listed in the table on Page\u202f3 of the Apex Health Shield Version\u202f2 policy is **12\u202fmonths** [APEX_HEALTH_V2 p.3].  \nClause\u202f3.4 on Page\u202f3 specifies a **sub\u2011limit of Rs.\u202f60,000 per eye** for cataract surgery [APEX_HEALTH_V2 p.3].  \n\nPage\u202f2 of the policy does not contain Clause\u202f3.4, so no sub\u2011limit is specified there.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 40.64,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q072",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, how does the accidental bodily injury exception to the waiting period on Page 3 relate to the reconstructive cosmetic surgery clause on Page 4?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030798
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.030769
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030331
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028814
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy states that the normal 30\u2011day waiting period does **not** apply to \u201call illnesses except accidental bodily injury\u201d \u2013 claims arising from accidental bodily injury are covered without waiting for the initial 30\u2011day period to expire\u202f[APEX_HEALTH_V2 p.3].\n\nOn the exclusions page, cosmetic or plastic surgery is generally excluded **unless** it is required as reconstructive surgery **following an accidental bodily injury**\u202f[APEX_HEALTH_V2 p.4].\n\nTherefore, because accidental bodily injury is exempt from the waiting period, any reconstructive cosmetic surgery that is performed as a result of such an injury can be claimed immediately (i.e., without waiting), while purely aesthetic cosmetic procedures remain excluded. The two provisions are linked: the waiting\u2011period exemption for accidental injury enables the reconstructive\u2011surgery exception to be effective without delay.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 43.63,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q073",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, what is the maternity benefit waiting period under Section 4.3 on Page 4 compared to the general initial waiting period on Page 3?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031258
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030777
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029631
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028986
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028175
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The maternity benefit under Section\u202f4.3 is subject to a **24\u2011month waiting period**\u202f[APEX_HEALTH_V2 p.4].  \nThe general \u201cinitial waiting period\u201d for all illnesses (except accidental injury) listed in Section\u202f3 is **30\u202fdays**\u202f[APEX_HEALTH_V2 p.3].  \n\nThus, the maternity waiting period (24\u202fmonths) is far longer than the standard initial waiting period of 30\u202fdays.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 3,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 48.37,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q074",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, what notice is required for planned admission on Page 5, and what minimum hospital stay is required on Page 1?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031258
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.030118
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029631
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029437
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.02885
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028814
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy requires that the insured (or their representative) give the insurer **at least 48\u202fhours\u2019 notice before a planned admission at a network hospital** [APEX_HEALTH_V2 p.5].\n\nFor a hospitalisation to be considered \u201cin\u2011patient\u201d under the policy, the admission must be for **a minimum contiguous period of 24\u202fhours** [APEX_HEALTH_V2 p.1].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 46.16,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q075",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Apex Health Shield Version 2, what is the Free-Look Period duration defined on Page 1, and what refund terms apply under Section 5.3 on Page 5?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V2",
+          1
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032002
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030303
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028577
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028571
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The policy defines the Free\u2011Look Period as **15\u202fdays** from the date the policy document (or schedule) is received\u202f[APEX_HEALTH_V2 p.1].  \n\nUnder Section\u202f5.3 on Page\u202f5, the Free\u2011Look provision states that **if no claim was made during this period, the premium is refunded, subject only to minimal administrative charges**\u202f[APEX_HEALTH_V2 p.5].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 5,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 34.5,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q076",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Care Wellness Advantage, what Sum Insured options are offered for Gold on Page 1, and what room category entitlement applies on Page 2?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031746
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.03125
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.030769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029644
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029199
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.02901
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.028595
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 33.85,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q077",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Care Wellness Advantage, what worldwide emergency coverage is provided for Gold on Page 1, and what air ambulance limit is provided on Page 2?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032787
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03125
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029762
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.029644
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029469
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029236
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028814
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "The Gold plan includes worldwide emergency coverage of up to\u202f$50,000\u202f[CARE_WELLNESS_BROCHURE p.1].  \nFor air\u2011ambulance services, the Gold plan provides a limit of up to\u202fRs.\u202f5\u202fLakhs per hospitalisation\u202f[CARE_WELLNESS_BROCHURE p.2].",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 1,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "CARE_WELLNESS_BROCHURE",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.58,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q078",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In Care Wellness Advantage, how does the free co-payment highlight on Page 1 compare to the pre-existing disease waiting period on Page 3?",
+      "gold_pages": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.032266
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031281
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.029877
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029199
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028175
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 25.47,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q079",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In the Critical Illness Rider, what benefit is paid for Major Organ Transplant on Page 1, and what additional donor expense is provided in the Page 3 endorsement?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029857
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029851
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.02971
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028992
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.028986
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 36.31,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q080",
+      "type": "cross_reference",
+      "answerable": true,
+      "question": "In the Critical Illness Rider, what is the initial waiting period on Page 2 compared to the organ donor waiting period in the Page 3 endorsement?",
+      "gold_pages": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.032787
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03125
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030798
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.030579
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029877
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.02967
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 36.77,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q081",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How does the daily room rent sub-limit compare between Version 1 and Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.032258
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.030769
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029199
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.028814
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          0.028778
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          0.028624
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Version\u202f1 of Apex Health Shield sets the daily room\u2011rent sub\u2011limit at\u202fRs\u202f5,000 per day\u202f[APEX_HEALTH_V1 p.2].  \nVersion\u202f2 raises this allowance to\u202fRs\u202f7,500 per day\u202f[APEX_HEALTH_V2 p.2].  \n\nThus, the room\u2011rent sub\u2011limit in Version\u202f2 is Rs\u202f2,500 higher per day than in Version\u202f1.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V1",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 2,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 36.17,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q082",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How do the ICU charges limits differ between Version 1 and Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.030118
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029572
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          0.028814
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028778
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 29.86,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q083",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How does pre-hospitalisation expense coverage duration compare between Version 1 and Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032018
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031746
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          0.029437
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029236
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          0.028814
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 26.34,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q084",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How does post-hospitalisation expense coverage duration compare between Version 1 and Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029437
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029274
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029199
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          0.02901
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          0.02901
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 25.56,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q085",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How does the road ambulance limit per hospitalisation compare between Version 1 and Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          2
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029911
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029762
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.029762
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029418
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029324
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 24.3,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q086",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How did the waiting period for cataract surgery change from Version 1 to Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031025
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029851
+        ],
+        [
+          "APEX_HEALTH_V1",
+          4,
+          0.02971
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029514
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.029469
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.029437
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029412
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 28.83,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q087",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How did the cataract surgery monetary sub-limit per eye change between Version 1 and Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.03125
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030798
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V1",
+          4,
+          0.029631
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          0.028986
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.028175
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 51.8,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q088",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "Which version of Apex Health Shield has a shorter waiting period for pre-existing diseases declared at inception?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          3
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          0.03125
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.030303
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.02901
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.028992
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.028992
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.028986
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 32.0,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": false,
+      "faithful": null,
+      "citation_ok": false,
+      "gold_page_cited": false
+    },
+    {
+      "id": "Q089",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "Do both Version 1 and Version 2 of Apex Health Shield cover maternity expenses, and how do they differ?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          4
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4
+        ]
+      ],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V1",
+          4,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V1",
+          3,
+          0.02904
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          0.02904
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "Version\u202f1 of the Apex Health Shield policy does **not** cover maternity expenses.  \nIn Version\u202f1, maternity and childbirth are listed as exclusions under Section\u202f4.3\u202f[APEX_HEALTH_V1 p.4].\n\nVersion\u202f2 of the policy **does** cover maternity expenses.  \nUnder Version\u202f2, Section\u202f4.3 states that inpatient medical expenses for maternity and normal or cesarean delivery are covered up to Rs.\u202f50,000 per delivery, after a waiting period of 24\u202fmonths, and this benefit is available for up to two deliveries [APEX_HEALTH_V2 p.4].\n\nThus, the key difference is that Version\u202f1 excludes maternity coverage entirely, whereas Version\u202f2 provides maternity coverage with a specified limit, waiting period, and delivery cap.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V1",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 4,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 39.35,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": false,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q090",
+      "type": "compare_two",
+      "answerable": true,
+      "question": "How did the mandatory co-payment for senior citizens aged 65 and above change between Version 1 and Version 2 of Apex Health Shield?",
+      "gold_pages": [
+        [
+          "APEX_HEALTH_V1",
+          6
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6
+        ]
+      ],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V1",
+          6,
+          0.032258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V1",
+          1,
+          0.030331
+        ],
+        [
+          "APEX_HEALTH_V1",
+          5,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.029762
+        ],
+        [
+          "APEX_HEALTH_V1",
+          2,
+          0.029469
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029418
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029083
+        ],
+        [
+          "APEX_HEALTH_V1",
+          4,
+          0.02904
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "In Version\u202f1 the policy required a **20\u202f%** mandatory co\u2011payment on every admissible claim for insured persons who were 65\u202fyears old or older\u202f[APEX_HEALTH_V1 p.6].  \n\nIn Version\u202f2 this senior co\u2011payment was **reduced to 10\u202f%** per admissible claim\u202f[APEX_HEALTH_V2 p.6].  \n\nThus, the mandatory co\u2011payment for senior citizens was lowered from 20\u202f% to 10\u202f% between the two versions.",
+      "refused": false,
+      "refusal_reason": "",
+      "citations": [
+        {
+          "doc_id": "APEX_HEALTH_V1",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        },
+        {
+          "doc_id": "APEX_HEALTH_V2",
+          "page": 6,
+          "verified": true,
+          "in_context": true
+        }
+      ],
+      "latency_ms": 47.91,
+      "hit": {
+        "1": true,
+        "3": true,
+        "5": true,
+        "10": true
+      },
+      "rr": 1.0,
+      "correct": true,
+      "faithful": true,
+      "citation_ok": true,
+      "gold_page_cited": true
+    },
+    {
+      "id": "Q091",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "What is the annual policy premium for a 45-year-old individual residing in Bengaluru?",
+      "gold_pages": [],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.031319
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031281
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029911
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029911
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029762
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.028986
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 31.73,
+      "correct": true
+    },
+    {
+      "id": "Q092",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does Apex Health Shield cover medical treatments at Mount Elizabeth Hospital in Singapore?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032266
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030536
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.02971
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029437
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029412
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029211
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028986
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 24.28,
+      "correct": true
+    },
+    {
+      "id": "Q093",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "What was Apex General Insurance's incurred claim ratio or claim settlement ratio for last financial year?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031778
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031281
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.03055
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.030366
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.029958
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029911
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.02879
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 27.34,
+      "correct": true
+    },
+    {
+      "id": "Q094",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "What is the customer support toll-free telephone number for Care Health Insurance?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032266
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032002
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031778
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.031281
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030331
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.03031
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030077
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.02971
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.028778
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028595
+        ]
+      ],
+      "top_score": 0.032266458495966696,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 27.27,
+      "correct": true
+    },
+    {
+      "id": "Q095",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does Apex Health Shield provide cover for robotic surgery procedures for prostate cancer?",
+      "gold_pages": [],
+      "in_calibration": true,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.032266
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031258
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.03125
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.031054
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029857
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.029469
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.029211
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.028382
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 25.45,
+      "correct": true
+    },
+    {
+      "id": "Q096",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Is outpatient consultation for dental caries or scaling covered under Care Wellness Advantage?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.032522
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.032522
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031025
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.030777
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030769
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.030118
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.029199
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.02901
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028624
+        ]
+      ],
+      "top_score": 0.03252247488101534,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 26.08,
+      "correct": true
+    },
+    {
+      "id": "Q097",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Which hospitals in Mumbai are included in the cashless network for Apex Health Shield?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032018
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.031778
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030579
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03055
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030077
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.030018
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029469
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028992
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.02885
+        ]
+      ],
+      "top_score": 0.032018442622950824,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 26.25,
+      "correct": true
+    },
+    {
+      "id": "Q098",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Does Apex Health Shield provide cashless claim settlement in government municipal hospitals?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032018
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031514
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.031498
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.031319
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.030798
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.030303
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          1,
+          0.028992
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          1,
+          0.02879
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.028778
+        ]
+      ],
+      "top_score": 0.032018442622950824,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 29.03,
+      "correct": true
+    },
+    {
+      "id": "Q099",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "What is the maximum tax deduction limit under Section 80D of the Income Tax Act for this policy?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.032787
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.032002
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.031498
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          2,
+          0.031281
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03101
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.030536
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.029418
+        ],
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.029211
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.029199
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.028992
+        ]
+      ],
+      "top_score": 0.03278688524590164,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "model_refused",
+      "citations": [],
+      "latency_ms": 31.24,
+      "correct": true
+    },
+    {
+      "id": "Q100",
+      "type": "unanswerable",
+      "answerable": false,
+      "question": "Can the insurance premium be paid in monthly installments via bank auto-debit ECS mandate?",
+      "gold_pages": [],
+      "in_calibration": false,
+      "retrieved": [
+        [
+          "APEX_HEALTH_V2",
+          5,
+          0.032002
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          4,
+          0.031754
+        ],
+        [
+          "APEX_HEALTH_V2",
+          1,
+          0.031319
+        ],
+        [
+          "APEX_HEALTH_V2",
+          3,
+          0.03101
+        ],
+        [
+          "APEX_HEALTH_V2",
+          6,
+          0.030679
+        ],
+        [
+          "CARE_WELLNESS_BROCHURE",
+          3,
+          0.03009
+        ],
+        [
+          "APEX_HEALTH_V2",
+          4,
+          0.030077
+        ],
+        [
+          "AGENT_GUIDE_FAKE",
+          1,
+          0.029572
+        ],
+        [
+          "APEX_HEALTH_V2",
+          2,
+          0.028992
+        ],
+        [
+          "SPECIAL_RIDER_SCANNED",
+          2,
+          0.02885
+        ]
+      ],
+      "top_score": 0.03200204813108039,
+      "answer": "I do not have enough information in the provided policy documents to answer this question.",
+      "refused": true,
+      "refusal_reason": "low_support",
+      "citations": [],
+      "latency_ms": 25.97,
+      "correct": true
+    }
+  ]
+}

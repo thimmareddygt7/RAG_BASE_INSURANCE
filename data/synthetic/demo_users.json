@@ -1,0 +1,17 @@
+{
+  "alice": {
+    "group": "policyholder",
+    "display_name": "Alice (policyholder)",
+    "password_hash": "scrypt$16384$8$1$mbOkUJUyWraYkkCKzwTE0Q==$egiYUqfIWuUbxjJk8dgwIUJz1msRx/5VXGubQFg2Zrw="
+  },
+  "bob": {
+    "group": "agent",
+    "display_name": "Bob (agent)",
+    "password_hash": "scrypt$16384$8$1$B3B3+VjeJaVbJ4yIrBDLbQ==$tFZwvzpE+FrpXlXZEDxVFLVzgNg/1I5BokdFrDvjKe0="
+  },
+  "carol": {
+    "group": "admin",
+    "display_name": "Carol (admin)",
+    "password_hash": "scrypt$16384$8$1$hPCZ+QNTD4BAZ173r3zw0Q==$bAUUOWurA5e75d1yIE50JhFwLt4lWPLMW4iOKRbNqR4="
+  }
+}
