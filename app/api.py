@@ -1,4 +1,4 @@
-"""FastAPI app: health, login, document list, ask, and admin reindex.
+"""FastAPI app: health, login, document list, ask, upload, and admin reindex.
 
 The caller's group always comes from the verified JWT. Request bodies cannot set it.
 """
@@ -6,13 +6,16 @@ The caller's group always comes from the verified JWT. Request bodies cannot set
 from __future__ import annotations
 
 import logging
+import re
+import shutil
 import tempfile
+import uuid
 from dataclasses import dataclass, field
 from pathlib import Path
 from collections.abc import Callable
 from typing import Any, Literal
 
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from pydantic import BaseModel, Field
@@ -21,9 +24,15 @@ from app.auth import (AuthError, User, authenticate, create_token, decode_token,
                       load_users)
 from app.config import ROOT, ConfigError, Settings, load_settings
 from app.dataset import get_dataset, sync_dataset
+from app.ingest.indexer import build_doc_chunks
+from app.ingest.sources import SourceDoc
 from app.pipeline import RagPipeline, build_pipeline
 
 log = logging.getLogger("insurance_rag")
+
+# Uploaded PDFs land here (persists across restarts, excluded from git)
+UPLOAD_DIR = ROOT / "data" / "uploads"
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 
 class HealthResponse(BaseModel):
@@ -77,6 +86,13 @@ class AskResponse(BaseModel):
     sources: list[SourceOut]
     timings_ms: dict[str, float]
     disclaimer: str
+
+
+class UploadResponse(BaseModel):
+    doc_id: str
+    filename: str
+    chunks_indexed: int
+    message: str
 
 
 @dataclass
@@ -168,6 +184,64 @@ def create_app(settings: Settings | None = None, offline: bool | None = None,
             citations=[CitationOut(doc_id=c.doc_id, page=c.page, verified=c.verified)
                        for c in result.citations],
             sources=sources, timings_ms=result.timings_ms, disclaimer=disclaimer)
+
+    @app.post("/upload", response_model=UploadResponse, tags=["rag"])
+    async def upload_pdf(file: UploadFile = File(...),
+                         user: User = Depends(current_user)) -> UploadResponse:
+        """Upload a PDF and index it immediately so it can be queried via /ask."""
+        if not file.filename or not file.filename.lower().endswith(".pdf"):
+            raise HTTPException(400, "Only PDF files are accepted")
+        if file.size and file.size > 50 * 1024 * 1024:
+            raise HTTPException(413, "File too large (max 50 MB)")
+
+        # Sanitise the filename and create a unique doc_id
+        safe_name = re.sub(r"[^\w.\-]", "_", file.filename or "upload.pdf")
+        doc_id = f"UPLOAD_{uuid.uuid4().hex[:8].upper()}_{safe_name[:-4]}"[:64]
+        dest = UPLOAD_DIR / f"{doc_id}.pdf"
+
+        # Save to disk
+        content = await file.read()
+        dest.write_bytes(content)
+        log.info("upload: saved %s (%d bytes) as %s", file.filename, len(content), dest)
+
+        # Index via the same pipeline used by /ask
+        pipeline = runtime.get_pipeline()
+        cfg = settings.cfg
+        allowed_groups = tuple(settings.get("auth.groups", [user.group]))
+        source = SourceDoc(
+            doc_id=doc_id,
+            kind="upload",
+            insurer="",
+            product=safe_name[:-4],
+            version="v1",
+            path=dest,
+            allowed_groups=allowed_groups,
+            is_latest=True,
+        )
+        try:
+            chunks = build_doc_chunks(source, cfg)
+        except Exception as exc:
+            dest.unlink(missing_ok=True)
+            log.error("upload: chunking failed for %s: %s", doc_id, exc)
+            raise HTTPException(500, f"Could not parse PDF: {exc}") from exc
+
+        if not chunks:
+            dest.unlink(missing_ok=True)
+            raise HTTPException(422, "PDF produced no text — it may be image-only. "
+                                "Try scanning with OCR enabled.")
+
+        batch = int(cfg.get("ingest", {}).get("batch_size", 32))
+        for i in range(0, len(chunks), batch):
+            part = chunks[i:i + batch]
+            pipeline.store.upsert(part,
+                                  pipeline.embedder.embed_documents([c.text for c in part]))
+        log.info("upload: indexed %d chunks for %s", len(chunks), doc_id)
+        return UploadResponse(
+            doc_id=doc_id,
+            filename=file.filename or safe_name,
+            chunks_indexed=len(chunks),
+            message=f"✅ Indexed {len(chunks)} chunks. You can now ask questions about this document.",
+        )
 
     @app.post("/admin/reindex", tags=["admin"])
     def reindex(user: User = Depends(current_user)) -> dict:

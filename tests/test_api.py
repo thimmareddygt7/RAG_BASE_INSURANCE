@@ -88,6 +88,35 @@ class Api(unittest.TestCase):
         r = client.post("/auth/login", json={"username": "bob", "password": PASSWORD})
         self.assertEqual(r.status_code, 500)
 
+    def test_upload_pdf_and_query(self):
+        import fitz
+        doc = fitz.open()
+        page = doc.new_page()
+        page.insert_text((50, 72), "The Diamond Rider policy covers acupuncture therapy up to 25000 rupees.")
+        pdf_bytes = doc.tobytes()
+        doc.close()
+
+        files = {"file": ("diamond_rider.pdf", pdf_bytes, "application/pdf")}
+        r = self.client.post("/upload", files=files, headers=self.token("alice"))
+        self.assertEqual(r.status_code, 200, r.text)
+        data = r.json()
+        self.assertIn("UPLOAD_", data["doc_id"])
+        self.assertGreater(data["chunks_indexed"], 0)
+
+        # Check it appears in documents list
+        docs = self.client.get("/documents", headers=self.token("alice")).json()
+        doc_ids = [d["doc_id"] for d in docs]
+        self.assertIn(data["doc_id"], doc_ids)
+
+        # Query the newly uploaded document
+        ask_res = self.client.post("/ask",
+                                   json={"question": "What does the Diamond Rider cover for acupuncture?"},
+                                   headers=self.token("alice"))
+        self.assertEqual(ask_res.status_code, 200)
+        answer_data = ask_res.json()
+        self.assertFalse(answer_data["refused"])
+        self.assertIn("25000", answer_data["answer"])
+
 
 if __name__ == "__main__":
     unittest.main()

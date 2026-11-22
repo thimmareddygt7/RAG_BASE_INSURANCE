@@ -61,6 +61,8 @@ services:
       - "8501:8501"
     environment:
       - API_URL=http://api:8000
+    volumes:
+      - ./ui:/app/ui
     depends_on:
       - api
 

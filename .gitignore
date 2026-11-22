@@ -1,6 +1,7 @@
 # Raw documents and vector data (never committed; use scripts/download.py)
 data/raw/*
 !data/raw/.gitkeep
+data/uploads/
 data/vectorstore/
 qdrant_storage/
 *.pdf
